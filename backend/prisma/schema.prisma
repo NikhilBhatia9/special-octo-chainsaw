@@ -1,0 +1,173 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String   @id @default(uuid())
+  googleId      String   @unique
+  email         String   @unique
+  name          String
+  avatar        String?
+  cashBalance   Float    @default(0)
+  bonusBalance  Float    @default(0)
+  level         Int      @default(1)
+  xp            Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  teams         Team[]
+  contestEntries ContestEntry[]
+  transactions  Transaction[]
+
+  @@map("users")
+}
+
+model Match {
+  id          String   @id @default(uuid())
+  homeTeam    String
+  awayTeam    String
+  homeTeamFlag String
+  awayTeamFlag String
+  venue       String
+  startTime   DateTime
+  format      String   // T20, ODI, TEST
+  series      String
+  status      String   @default("UPCOMING") // UPCOMING, LIVE, COMPLETED
+  pitchReport String?
+  weather     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  players    Player[]
+  contests   Contest[]
+  teams      Team[]
+
+  @@map("matches")
+}
+
+model Player {
+  id          String   @id @default(uuid())
+  name        String
+  team        String
+  role        String   // BATSMAN, BOWLER, ALL_ROUNDER, WICKET_KEEPER
+  credits     Float
+  points      Float    @default(0)
+  image       String?
+  selectedBy  Float    @default(0) // percentage
+  matchId     String
+  
+  // Stats stored as JSON
+  stats       Json?
+
+  match       Match    @relation(fields: [matchId], references: [id], onDelete: Cascade)
+  teamPlayers TeamPlayer[]
+
+  @@map("players")
+}
+
+model Contest {
+  id          String   @id @default(uuid())
+  name        String
+  matchId     String
+  entryFee    Float
+  prizePool   Float
+  totalSpots  Int
+  spotsLeft   Int
+  type        String   // MEGA, SMALL, HEAD_TO_HEAD, PRACTICE
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  match       Match    @relation(fields: [matchId], references: [id], onDelete: Cascade)
+  entries     ContestEntry[]
+  prizes      Prize[]
+
+  @@map("contests")
+}
+
+model Team {
+  id              String   @id @default(uuid())
+  userId          String
+  matchId         String
+  name            String?
+  captainId       String?
+  viceCaptainId   String?
+  totalCredits    Float    @default(0)
+  totalPoints     Float    @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  match           Match    @relation(fields: [matchId], references: [id], onDelete: Cascade)
+  players         TeamPlayer[]
+  contestEntries  ContestEntry[]
+
+  @@map("teams")
+}
+
+model TeamPlayer {
+  id              String   @id @default(uuid())
+  teamId          String
+  playerId        String
+  isCaptain       Boolean  @default(false)
+  isViceCaptain   Boolean  @default(false)
+  points          Float    @default(0)
+
+  team            Team     @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  player          Player   @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  @@unique([teamId, playerId])
+  @@map("team_players")
+}
+
+model ContestEntry {
+  id          String   @id @default(uuid())
+  userId      String
+  contestId   String
+  teamId      String
+  rank        Int?
+  points      Float    @default(0)
+  winnings    Float    @default(0)
+  createdAt   DateTime @default(now())
+
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  contest     Contest  @relation(fields: [contestId], references: [id], onDelete: Cascade)
+  team        Team     @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, contestId, teamId])
+  @@map("contest_entries")
+}
+
+model Transaction {
+  id          String   @id @default(uuid())
+  userId      String
+  type        String   // DEPOSIT, WITHDRAWAL, CONTEST_ENTRY, PRIZE_WINNING, BONUS_CREDIT
+  amount      Float
+  status      String   @default("PENDING") // PENDING, COMPLETED, FAILED
+  reference   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("transactions")
+}
+
+model Prize {
+  id          String   @id @default(uuid())
+  contestId   String
+  rankFrom    Int
+  rankTo      Int
+  amount      Float
+
+  contest     Contest  @relation(fields: [contestId], references: [id], onDelete: Cascade)
+
+  @@map("prizes")
+}
