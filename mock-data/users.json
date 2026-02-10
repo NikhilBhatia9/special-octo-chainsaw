@@ -1,0 +1,57 @@
+[
+  {
+    "id": "user-1",
+    "googleId": "google-test-123",
+    "email": "test.user@example.com",
+    "name": "Test User",
+    "avatar": null,
+    "cashBalance": 250.50,
+    "bonusBalance": 75.00,
+    "level": 5,
+    "xp": 1250
+  },
+  {
+    "id": "user-2",
+    "googleId": "google-demo-456",
+    "email": "demo.player@example.com",
+    "name": "Demo Player",
+    "avatar": null,
+    "cashBalance": 500.00,
+    "bonusBalance": 100.00,
+    "level": 8,
+    "xp": 2340
+  },
+  {
+    "id": "user-3",
+    "googleId": "google-john-789",
+    "email": "john.smith@example.com",
+    "name": "John Smith",
+    "avatar": null,
+    "cashBalance": 1250.75,
+    "bonusBalance": 50.00,
+    "level": 12,
+    "xp": 4560
+  },
+  {
+    "id": "user-4",
+    "googleId": "google-sarah-321",
+    "email": "sarah.jones@example.com",
+    "name": "Sarah Jones",
+    "avatar": null,
+    "cashBalance": 845.20,
+    "bonusBalance": 120.00,
+    "level": 10,
+    "xp": 3200
+  },
+  {
+    "id": "user-5",
+    "googleId": "google-mike-654",
+    "email": "mike.brown@example.com",
+    "name": "Mike Brown",
+    "avatar": null,
+    "cashBalance": 150.00,
+    "bonusBalance": 50.00,
+    "level": 3,
+    "xp": 480
+  }
+]
