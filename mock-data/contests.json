@@ -1,0 +1,195 @@
+[
+  {
+    "id": "contest-1",
+    "name": "Mega Contest",
+    "matchId": "match-1",
+    "entryFee": 20,
+    "prizePool": 150000,
+    "totalSpots": 10000,
+    "spotsLeft": 3245,
+    "type": "MEGA",
+    "prizes": [
+      { "id": "prize-1", "contestId": "contest-1", "rankFrom": 1, "rankTo": 1, "amount": 25000 },
+      { "id": "prize-2", "contestId": "contest-1", "rankFrom": 2, "rankTo": 2, "amount": 15000 },
+      { "id": "prize-3", "contestId": "contest-1", "rankFrom": 3, "rankTo": 3, "amount": 10000 },
+      { "id": "prize-4", "contestId": "contest-1", "rankFrom": 4, "rankTo": 5, "amount": 5000 },
+      { "id": "prize-5", "contestId": "contest-1", "rankFrom": 6, "rankTo": 10, "amount": 2000 },
+      { "id": "prize-6", "contestId": "contest-1", "rankFrom": 11, "rankTo": 50, "amount": 500 },
+      { "id": "prize-7", "contestId": "contest-1", "rankFrom": 51, "rankTo": 100, "amount": 200 }
+    ]
+  },
+  {
+    "id": "contest-2",
+    "name": "Small League",
+    "matchId": "match-1",
+    "entryFee": 50,
+    "prizePool": 4500,
+    "totalSpots": 100,
+    "spotsLeft": 24,
+    "type": "SMALL",
+    "prizes": [
+      { "id": "prize-8", "contestId": "contest-2", "rankFrom": 1, "rankTo": 1, "amount": 1500 },
+      { "id": "prize-9", "contestId": "contest-2", "rankFrom": 2, "rankTo": 2, "amount": 1000 },
+      { "id": "prize-10", "contestId": "contest-2", "rankFrom": 3, "rankTo": 3, "amount": 700 },
+      { "id": "prize-11", "contestId": "contest-2", "rankFrom": 4, "rankTo": 5, "amount": 400 },
+      { "id": "prize-12", "contestId": "contest-2", "rankFrom": 6, "rankTo": 10, "amount": 200 }
+    ]
+  },
+  {
+    "id": "contest-3",
+    "name": "Head to Head",
+    "matchId": "match-1",
+    "entryFee": 100,
+    "prizePool": 180,
+    "totalSpots": 2,
+    "spotsLeft": 1,
+    "type": "HEAD_TO_HEAD",
+    "prizes": [
+      { "id": "prize-13", "contestId": "contest-3", "rankFrom": 1, "rankTo": 1, "amount": 180 }
+    ]
+  },
+  {
+    "id": "contest-4",
+    "name": "Practice Contest",
+    "matchId": "match-1",
+    "entryFee": 0,
+    "prizePool": 0,
+    "totalSpots": 10000,
+    "spotsLeft": 8567,
+    "type": "PRACTICE",
+    "prizes": []
+  },
+  {
+    "id": "contest-5",
+    "name": "Winner Takes All",
+    "matchId": "match-2",
+    "entryFee": 10,
+    "prizePool": 10000,
+    "totalSpots": 1000,
+    "spotsLeft": 456,
+    "type": "SMALL",
+    "prizes": [
+      { "id": "prize-14", "contestId": "contest-5", "rankFrom": 1, "rankTo": 1, "amount": 10000 }
+    ]
+  },
+  {
+    "id": "contest-6",
+    "name": "Top 10 Winners",
+    "matchId": "match-2",
+    "entryFee": 25,
+    "prizePool": 22500,
+    "totalSpots": 1000,
+    "spotsLeft": 234,
+    "type": "SMALL",
+    "prizes": [
+      { "id": "prize-15", "contestId": "contest-6", "rankFrom": 1, "rankTo": 1, "amount": 7500 },
+      { "id": "prize-16", "contestId": "contest-6", "rankFrom": 2, "rankTo": 2, "amount": 5000 },
+      { "id": "prize-17", "contestId": "contest-6", "rankFrom": 3, "rankTo": 3, "amount": 3000 },
+      { "id": "prize-18", "contestId": "contest-6", "rankFrom": 4, "rankTo": 10, "amount": 1000 }
+    ]
+  },
+  {
+    "id": "contest-7",
+    "name": "Super Mega Contest",
+    "matchId": "match-3",
+    "entryFee": 15,
+    "prizePool": 200000,
+    "totalSpots": 15000,
+    "spotsLeft": 5678,
+    "type": "MEGA",
+    "prizes": [
+      { "id": "prize-19", "contestId": "contest-7", "rankFrom": 1, "rankTo": 1, "amount": 50000 },
+      { "id": "prize-20", "contestId": "contest-7", "rankFrom": 2, "rankTo": 2, "amount": 30000 },
+      { "id": "prize-21", "contestId": "contest-7", "rankFrom": 3, "rankTo": 3, "amount": 20000 },
+      { "id": "prize-22", "contestId": "contest-7", "rankFrom": 4, "rankTo": 10, "amount": 5000 },
+      { "id": "prize-23", "contestId": "contest-7", "rankFrom": 11, "rankTo": 50, "amount": 1000 },
+      { "id": "prize-24", "contestId": "contest-7", "rankFrom": 51, "rankTo": 200, "amount": 250 }
+    ]
+  },
+  {
+    "id": "contest-8",
+    "name": "Beginner Friendly",
+    "matchId": "match-3",
+    "entryFee": 5,
+    "prizePool": 4500,
+    "totalSpots": 1000,
+    "spotsLeft": 687,
+    "type": "SMALL",
+    "prizes": [
+      { "id": "prize-25", "contestId": "contest-8", "rankFrom": 1, "rankTo": 1, "amount": 1500 },
+      { "id": "prize-26", "contestId": "contest-8", "rankFrom": 2, "rankTo": 5, "amount": 500 },
+      { "id": "prize-27", "contestId": "contest-8", "rankFrom": 6, "rankTo": 20, "amount": 100 }
+    ]
+  },
+  {
+    "id": "contest-9",
+    "name": "High Roller",
+    "matchId": "match-4",
+    "entryFee": 200,
+    "prizePool": 18000,
+    "totalSpots": 100,
+    "spotsLeft": 12,
+    "type": "SMALL",
+    "prizes": [
+      { "id": "prize-28", "contestId": "contest-9", "rankFrom": 1, "rankTo": 1, "amount": 8000 },
+      { "id": "prize-29", "contestId": "contest-9", "rankFrom": 2, "rankTo": 2, "amount": 5000 },
+      { "id": "prize-30", "contestId": "contest-9", "rankFrom": 3, "rankTo": 3, "amount": 3000 },
+      { "id": "prize-31", "contestId": "contest-9", "rankFrom": 4, "rankTo": 10, "amount": 500 }
+    ]
+  },
+  {
+    "id": "contest-10",
+    "name": "Practice Match",
+    "matchId": "match-5",
+    "entryFee": 0,
+    "prizePool": 0,
+    "totalSpots": 5000,
+    "spotsLeft": 3421,
+    "type": "PRACTICE",
+    "prizes": []
+  },
+  {
+    "id": "contest-11",
+    "name": "Guaranteed Contest",
+    "matchId": "match-5",
+    "entryFee": 30,
+    "prizePool": 25000,
+    "totalSpots": 1000,
+    "spotsLeft": 345,
+    "type": "SMALL",
+    "prizes": [
+      { "id": "prize-32", "contestId": "contest-11", "rankFrom": 1, "rankTo": 1, "amount": 7500 },
+      { "id": "prize-33", "contestId": "contest-11", "rankFrom": 2, "rankTo": 2, "amount": 5000 },
+      { "id": "prize-34", "contestId": "contest-11", "rankFrom": 3, "rankTo": 5, "amount": 2000 },
+      { "id": "prize-35", "contestId": "contest-11", "rankFrom": 6, "rankTo": 20, "amount": 500 }
+    ]
+  },
+  {
+    "id": "contest-12",
+    "name": "Quick Fire H2H",
+    "matchId": "match-6",
+    "entryFee": 50,
+    "prizePool": 90,
+    "totalSpots": 2,
+    "spotsLeft": 0,
+    "type": "HEAD_TO_HEAD",
+    "prizes": [
+      { "id": "prize-36", "contestId": "contest-12", "rankFrom": 1, "rankTo": 1, "amount": 90 }
+    ]
+  },
+  {
+    "id": "contest-13",
+    "name": "Budget Contest",
+    "matchId": "match-8",
+    "entryFee": 10,
+    "prizePool": 8000,
+    "totalSpots": 1000,
+    "spotsLeft": 543,
+    "type": "SMALL",
+    "prizes": [
+      { "id": "prize-37", "contestId": "contest-13", "rankFrom": 1, "rankTo": 1, "amount": 2500 },
+      { "id": "prize-38", "contestId": "contest-13", "rankFrom": 2, "rankTo": 2, "amount": 1500 },
+      { "id": "prize-39", "contestId": "contest-13", "rankFrom": 3, "rankTo": 10, "amount": 500 }
+    ]
+  }
+]
