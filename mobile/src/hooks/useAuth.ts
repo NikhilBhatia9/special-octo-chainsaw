@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState, AppDispatch } from '../redux/store';
-import { loginWithGoogle, logout, getCurrentUser } from '../redux/slices/authSlice';
+import { loginWithGoogle, logout, getCurrentUser, restoreAuthState } from '../redux/slices/authSlice';
+import { authService } from '../services/auth.service';
 
 export const useAuth = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -18,8 +19,15 @@ export const useAuth = () => {
     }
   };
 
-  const handleLogout = () => {
-    dispatch(logout());
+  const handleLogout = async () => {
+    try {
+      await authService.logout();
+      dispatch(logout());
+    } catch (error) {
+      console.error('Logout failed:', error);
+      // Still clear local state even if API call fails
+      dispatch(logout());
+    }
   };
 
   const refreshUser = async () => {
@@ -27,6 +35,14 @@ export const useAuth = () => {
       await dispatch(getCurrentUser()).unwrap();
     } catch (error) {
       console.error('Failed to refresh user:', error);
+    }
+  };
+
+  const restoreAuth = async () => {
+    try {
+      await dispatch(restoreAuthState()).unwrap();
+    } catch (error) {
+      console.error('Failed to restore auth state:', error);
     }
   };
 
@@ -39,5 +55,6 @@ export const useAuth = () => {
     login: handleGoogleLogin,
     logout: handleLogout,
     refreshUser,
+    restoreAuth,
   };
 };

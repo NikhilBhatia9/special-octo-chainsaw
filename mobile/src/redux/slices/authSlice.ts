@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { AuthState, User, LoginCredentials, AuthResponse } from '../../types/auth.types';
 import { authService } from '../../services/auth.service';
+import { googleAuthService } from '../../services/googleAuth.service';
 
 const initialState: AuthState = {
   user: null,
@@ -23,6 +24,19 @@ export const getCurrentUser = createAsyncThunk<User>(
   async () => {
     const response = await authService.getCurrentUser();
     return response;
+  }
+);
+
+export const restoreAuthState = createAsyncThunk<{ user: User; token: string } | null>(
+  'auth/restoreAuthState',
+  async () => {
+    const token = await authService.getStoredToken();
+    const user = await authService.getStoredUser();
+    
+    if (token && user) {
+      return { user, token };
+    }
+    return null;
   }
 );
 
@@ -68,6 +82,20 @@ const authSlice = createSlice({
       .addCase(getCurrentUser.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message || 'Failed to get user';
+      })
+      .addCase(restoreAuthState.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(restoreAuthState.fulfilled, (state, action) => {
+        state.isLoading = false;
+        if (action.payload) {
+          state.user = action.payload.user;
+          state.token = action.payload.token;
+          state.isAuthenticated = true;
+        }
+      })
+      .addCase(restoreAuthState.rejected, (state) => {
+        state.isLoading = false;
       });
   },
 });

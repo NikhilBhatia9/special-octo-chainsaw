@@ -1,8 +1,9 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Alert } from 'react-native';
 import { Button } from '../../components/common/Button';
 import { colors, typography, spacing } from '../../theme';
 import { useAuth } from '../../hooks/useAuth';
+import { googleAuthService } from '../../services/googleAuth.service';
 
 interface LoginScreenProps {
   navigation: any;
@@ -10,18 +11,39 @@ interface LoginScreenProps {
 
 export const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   const { login, isLoading } = useAuth();
+  const [signingIn, setSigningIn] = useState(false);
 
   const handleGoogleLogin = async () => {
+    setSigningIn(true);
     try {
-      // In a real app, this would trigger Google Sign-In
-      // const { idToken } = await GoogleSignin.signIn();
-      // await login(idToken);
+      // Configure Google Sign-In
+      await googleAuthService.configure();
       
-      // For demo purposes, navigate to home
-      console.log('Google login initiated');
-      // navigation.replace('Main');
-    } catch (error) {
+      // Sign in with Google
+      const { idToken } = await googleAuthService.signIn();
+      
+      // Send ID token to backend and login
+      await login(idToken);
+      
+      // Navigation will be handled automatically by RootNavigator
+      // based on auth state change
+    } catch (error: any) {
       console.error('Login failed:', error);
+      
+      // Handle specific error cases
+      let errorMessage = 'Failed to sign in with Google';
+      
+      if (error.code === 'SIGN_IN_CANCELLED') {
+        errorMessage = 'Sign in was cancelled';
+      } else if (error.code === 'IN_PROGRESS') {
+        errorMessage = 'Sign in is already in progress';
+      } else if (error.code === 'PLAY_SERVICES_NOT_AVAILABLE') {
+        errorMessage = 'Google Play Services not available';
+      }
+      
+      Alert.alert('Login Error', errorMessage);
+    } finally {
+      setSigningIn(false);
     }
   };
 
@@ -54,7 +76,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
         <Button
           title="Continue with Google"
           onPress={handleGoogleLogin}
-          loading={isLoading}
+          loading={isLoading || signingIn}
           style={styles.googleButton}
         />
         <Text style={styles.disclaimer}>

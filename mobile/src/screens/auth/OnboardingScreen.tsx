@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { Button } from '../../components/common/Button';
 import { colors, typography, spacing } from '../../theme';
+import { googleAuthService } from '../../services/googleAuth.service';
 
 interface OnboardingScreenProps {
   navigation: any;
@@ -31,15 +32,19 @@ const ONBOARDING_STEPS = [
 export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
   const [currentStep, setCurrentStep] = useState(0);
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (currentStep < ONBOARDING_STEPS.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
+      // Mark onboarding as seen
+      await googleAuthService.setOnboardingSeen();
       navigation.navigate('Login');
     }
   };
 
-  const handleSkip = () => {
+  const handleSkip = async () => {
+    // Mark onboarding as seen
+    await googleAuthService.setOnboardingSeen();
     navigation.navigate('Login');
   };
 
