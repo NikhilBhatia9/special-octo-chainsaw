@@ -1,8 +1,6 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { API_BASE_URL } from '../utils/constants';
-
-const AUTH_TOKEN_KEY = '@dreamteam:authToken';
+import { API_BASE_URL, AUTH_TOKEN_KEY } from '../utils/constants';
 
 const api = axios.create({
   baseURL: API_BASE_URL,

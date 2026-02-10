@@ -1,13 +1,8 @@
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { GOOGLE_WEB_CLIENT_ID } from '../utils/constants';
+import { GOOGLE_WEB_CLIENT_ID, AUTH_TOKEN_KEY, USER_DATA_KEY, ONBOARDING_KEY } from '../utils/constants';
 import { User } from '../types/auth.types';
-
-// Storage keys
-const AUTH_TOKEN_KEY = '@dreamteam:authToken';
-const USER_DATA_KEY = '@dreamteam:userData';
-const ONBOARDING_KEY = '@dreamteam:hasSeenOnboarding';
 
 export interface GoogleAuthUser {
   idToken: string;

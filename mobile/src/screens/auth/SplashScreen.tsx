@@ -19,6 +19,8 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
   const { restoreAuth, isAuthenticated } = useAuth();
 
   useEffect(() => {
+    // Initialize app on mount only
+    // We don't want to re-run when auth state changes during initialization
     initializeApp();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -40,12 +42,10 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
       // Navigate based on onboarding and auth state
       if (!hasSeenOnboarding) {
         navigation.replace('Onboarding');
-      } else if (isAuthenticated) {
-        // User is authenticated, RootNavigator will show MainNavigator
-        // No need to navigate here, just trigger a state update
-      } else {
+      } else if (!isAuthenticated) {
         navigation.replace('Login');
       }
+      // If authenticated, RootNavigator will switch to MainNavigator automatically
     } catch (error) {
       console.error('Initialization error:', error);
       // On error, show onboarding
