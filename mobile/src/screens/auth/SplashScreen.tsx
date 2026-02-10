@@ -1,14 +1,21 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { colors, typography, spacing } from '../../theme';
 import { useAuth } from '../../hooks/useAuth';
 import { googleAuthService } from '../../services/googleAuth.service';
 
+type AuthStackParamList = {
+  Splash: undefined;
+  Onboarding: undefined;
+  Login: undefined;
+};
+
 interface SplashScreenProps {
-  navigation?: unknown;
+  navigation: NativeStackNavigationProp<AuthStackParamList, 'Splash'>;
 }
 
-export const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }: { navigation?: { replace: (screen: string) => void } }) => {
+export const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
   const { restoreAuth, isAuthenticated } = useAuth();
 
   useEffect(() => {
@@ -32,17 +39,17 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }: { navi
 
       // Navigate based on onboarding and auth state
       if (!hasSeenOnboarding) {
-        navigation?.replace('Onboarding');
+        navigation.replace('Onboarding');
       } else if (isAuthenticated) {
         // User is authenticated, RootNavigator will show MainNavigator
         // No need to navigate here, just trigger a state update
       } else {
-        navigation?.replace('Login');
+        navigation.replace('Login');
       }
     } catch (error) {
       console.error('Initialization error:', error);
       // On error, show onboarding
-      navigation?.replace('Onboarding');
+      navigation.replace('Onboarding');
     }
   };
 

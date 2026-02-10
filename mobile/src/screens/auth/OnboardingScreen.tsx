@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Button } from '../../components/common/Button';
 import { colors, typography, spacing } from '../../theme';
 import { googleAuthService } from '../../services/googleAuth.service';
 
+type AuthStackParamList = {
+  Splash: undefined;
+  Onboarding: undefined;
+  Login: undefined;
+};
+
 interface OnboardingScreenProps {
-  navigation?: unknown;
+  navigation: NativeStackNavigationProp<AuthStackParamList, 'Onboarding'>;
 }
 
 const ONBOARDING_STEPS = [
@@ -29,7 +36,7 @@ const ONBOARDING_STEPS = [
   },
 ];
 
-export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }: { navigation?: { navigate: (screen: string) => void } }) => {
+export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
   const [currentStep, setCurrentStep] = useState(0);
 
   const handleNext = async () => {
@@ -38,14 +45,14 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }
     } else {
       // Mark onboarding as seen
       await googleAuthService.setOnboardingSeen();
-      navigation?.navigate('Login');
+      navigation.navigate('Login');
     }
   };
 
   const handleSkip = async () => {
     // Mark onboarding as seen
     await googleAuthService.setOnboardingSeen();
-    navigation?.navigate('Login');
+    navigation.navigate('Login');
   };
 
   const step = ONBOARDING_STEPS[currentStep];

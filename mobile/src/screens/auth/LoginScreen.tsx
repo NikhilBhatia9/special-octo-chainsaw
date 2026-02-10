@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Alert } from 'react-native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Button } from '../../components/common/Button';
 import { colors, typography, spacing } from '../../theme';
 import { useAuth } from '../../hooks/useAuth';
 import { googleAuthService } from '../../services/googleAuth.service';
 
+type AuthStackParamList = {
+  Splash: undefined;
+  Onboarding: undefined;
+  Login: undefined;
+};
+
 interface LoginScreenProps {
-  navigation?: unknown;
+  navigation: NativeStackNavigationProp<AuthStackParamList, 'Login'>;
 }
 
 export const LoginScreen: React.FC<LoginScreenProps> = () => {
