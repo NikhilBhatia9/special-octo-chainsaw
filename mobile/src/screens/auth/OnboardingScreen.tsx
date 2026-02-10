@@ -5,7 +5,7 @@ import { colors, typography, spacing } from '../../theme';
 import { googleAuthService } from '../../services/googleAuth.service';
 
 interface OnboardingScreenProps {
-  navigation: any;
+  navigation?: unknown;
 }
 
 const ONBOARDING_STEPS = [
@@ -29,7 +29,7 @@ const ONBOARDING_STEPS = [
   },
 ];
 
-export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
+export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }: { navigation?: { navigate: (screen: string) => void } }) => {
   const [currentStep, setCurrentStep] = useState(0);
 
   const handleNext = async () => {
@@ -38,14 +38,14 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }
     } else {
       // Mark onboarding as seen
       await googleAuthService.setOnboardingSeen();
-      navigation.navigate('Login');
+      navigation?.navigate('Login');
     }
   };
 
   const handleSkip = async () => {
     // Mark onboarding as seen
     await googleAuthService.setOnboardingSeen();
-    navigation.navigate('Login');
+    navigation?.navigate('Login');
   };
 
   const step = ONBOARDING_STEPS[currentStep];

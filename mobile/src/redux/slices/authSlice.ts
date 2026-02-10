@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { AuthState, User, LoginCredentials, AuthResponse } from '../../types/auth.types';
 import { authService } from '../../services/auth.service';
-import { googleAuthService } from '../../services/googleAuth.service';
 
 const initialState: AuthState = {
   user: null,

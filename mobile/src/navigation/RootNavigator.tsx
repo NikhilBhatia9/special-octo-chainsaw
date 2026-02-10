@@ -10,7 +10,7 @@ export const RootNavigator: React.FC = () => {
 
   useEffect(() => {
     // Give the auth restoration a moment to complete
-    if (!isLoading && !isInitialized) {
+    if (!isLoading) {
       setIsInitialized(true);
     }
   }, [isLoading]);

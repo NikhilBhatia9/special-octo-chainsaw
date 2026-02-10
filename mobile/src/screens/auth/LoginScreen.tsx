@@ -6,10 +6,10 @@ import { useAuth } from '../../hooks/useAuth';
 import { googleAuthService } from '../../services/googleAuth.service';
 
 interface LoginScreenProps {
-  navigation: any;
+  navigation?: unknown;
 }
 
-export const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
+export const LoginScreen: React.FC<LoginScreenProps> = () => {
   const { login, isLoading } = useAuth();
   const [signingIn, setSigningIn] = useState(false);
 
@@ -27,17 +27,18 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       
       // Navigation will be handled automatically by RootNavigator
       // based on auth state change
-    } catch (error: any) {
+    } catch (error) {
       console.error('Login failed:', error);
       
       // Handle specific error cases
       let errorMessage = 'Failed to sign in with Google';
       
-      if (error.code === 'SIGN_IN_CANCELLED') {
+      const err = error as { code?: string };
+      if (err.code === 'SIGN_IN_CANCELLED') {
         errorMessage = 'Sign in was cancelled';
-      } else if (error.code === 'IN_PROGRESS') {
+      } else if (err.code === 'IN_PROGRESS') {
         errorMessage = 'Sign in is already in progress';
-      } else if (error.code === 'PLAY_SERVICES_NOT_AVAILABLE') {
+      } else if (err.code === 'PLAY_SERVICES_NOT_AVAILABLE') {
         errorMessage = 'Google Play Services not available';
       }
       

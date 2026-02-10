@@ -5,14 +5,15 @@ import { useAuth } from '../../hooks/useAuth';
 import { googleAuthService } from '../../services/googleAuth.service';
 
 interface SplashScreenProps {
-  navigation: any;
+  navigation?: unknown;
 }
 
-export const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
+export const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }: { navigation?: { replace: (screen: string) => void } }) => {
   const { restoreAuth, isAuthenticated } = useAuth();
 
   useEffect(() => {
     initializeApp();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const initializeApp = async () => {
@@ -31,17 +32,17 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
 
       // Navigate based on onboarding and auth state
       if (!hasSeenOnboarding) {
-        navigation.replace('Onboarding');
+        navigation?.replace('Onboarding');
       } else if (isAuthenticated) {
         // User is authenticated, RootNavigator will show MainNavigator
         // No need to navigate here, just trigger a state update
       } else {
-        navigation.replace('Login');
+        navigation?.replace('Login');
       }
     } catch (error) {
       console.error('Initialization error:', error);
       // On error, show onboarding
-      navigation.replace('Onboarding');
+      navigation?.replace('Onboarding');
     }
   };
 

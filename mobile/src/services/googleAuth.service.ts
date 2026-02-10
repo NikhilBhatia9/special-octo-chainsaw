@@ -2,6 +2,7 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GOOGLE_WEB_CLIENT_ID } from '../utils/constants';
+import { User } from '../types/user.types';
 
 // Storage keys
 const AUTH_TOKEN_KEY = '@dreamteam:authToken';
@@ -143,7 +144,7 @@ class GoogleAuthService {
   /**
    * Store user data
    */
-  async storeUserData(userData: any): Promise<void> {
+  async storeUserData(userData: User): Promise<void> {
     try {
       await AsyncStorage.setItem(USER_DATA_KEY, JSON.stringify(userData));
     } catch (error) {
@@ -154,7 +155,7 @@ class GoogleAuthService {
   /**
    * Get stored user data
    */
-  async getUserData(): Promise<any | null> {
+  async getUserData(): Promise<User | null> {
     try {
       const data = await AsyncStorage.getItem(USER_DATA_KEY);
       return data ? JSON.parse(data) : null;
