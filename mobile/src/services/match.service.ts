@@ -1,11 +1,13 @@
-import api from './api';
 import { Match, Player } from '../types/match.types';
+import matchesData from '../data/matches.json';
+import playersData from '../data/players.json';
 
 export const matchService = {
   getMatches: async (): Promise<Match[]> => {
     try {
-      const response = await api.get('/api/matches');
-      return response.data;
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 300));
+      return matchesData as Match[];
     } catch (error) {
       throw error;
     }
@@ -13,8 +15,13 @@ export const matchService = {
 
   getMatchDetails: async (matchId: string): Promise<Match> => {
     try {
-      const response = await api.get(`/api/matches/${matchId}`);
-      return response.data;
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 300));
+      const match = matchesData.find(m => m.id === matchId);
+      if (!match) {
+        throw new Error('Match not found');
+      }
+      return match as Match;
     } catch (error) {
       throw error;
     }
@@ -22,8 +29,10 @@ export const matchService = {
 
   getMatchPlayers: async (matchId: string): Promise<Player[]> => {
     try {
-      const response = await api.get(`/api/matches/${matchId}/players`);
-      return response.data;
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 300));
+      const players = playersData.filter(p => p.matchId === matchId);
+      return players as Player[];
     } catch (error) {
       throw error;
     }
