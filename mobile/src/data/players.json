@@ -1,0 +1,491 @@
+[
+  {
+    "id": "player-1",
+    "name": "Kane Williamson",
+    "team": "New Zealand",
+    "role": "BATSMAN",
+    "credits": 10.5,
+    "points": 85,
+    "matchId": "match-1",
+    "selectedBy": 78.5,
+    "image": null,
+    "stats": {
+      "recentScores": [65, 42, 88, 34, 71],
+      "battingAverage": 52.3,
+      "strikeRate": 138.5
+    }
+  },
+  {
+    "id": "player-2",
+    "name": "Devon Conway",
+    "team": "New Zealand",
+    "role": "WICKET_KEEPER",
+    "credits": 9.5,
+    "points": 72,
+    "matchId": "match-1",
+    "selectedBy": 65.2,
+    "image": null,
+    "stats": {
+      "recentScores": [58, 31, 76, 89, 45],
+      "battingAverage": 48.7,
+      "strikeRate": 142.3
+    }
+  },
+  {
+    "id": "player-3",
+    "name": "Trent Boult",
+    "team": "New Zealand",
+    "role": "BOWLER",
+    "credits": 10.0,
+    "points": 68,
+    "matchId": "match-1",
+    "selectedBy": 72.8,
+    "image": null,
+    "stats": {
+      "recentWickets": [3, 2, 1, 4, 2],
+      "bowlingAverage": 22.4,
+      "economy": 7.8
+    }
+  },
+  {
+    "id": "player-4",
+    "name": "Mitchell Santner",
+    "team": "New Zealand",
+    "role": "ALL_ROUNDER",
+    "credits": 9.0,
+    "points": 55,
+    "matchId": "match-1",
+    "selectedBy": 58.3,
+    "image": null,
+    "stats": {
+      "recentScores": [28, 15, 42, 31, 19],
+      "recentWickets": [2, 1, 3, 1, 2],
+      "battingAverage": 24.5,
+      "bowlingAverage": 28.3,
+      "economy": 7.2
+    }
+  },
+  {
+    "id": "player-5",
+    "name": "Tim Southee",
+    "team": "New Zealand",
+    "role": "BOWLER",
+    "credits": 9.5,
+    "points": 62,
+    "matchId": "match-1",
+    "selectedBy": 55.7,
+    "image": null,
+    "stats": {
+      "recentWickets": [2, 3, 1, 2, 3],
+      "bowlingAverage": 25.6,
+      "economy": 8.1
+    }
+  },
+  {
+    "id": "player-6",
+    "name": "Glenn Phillips",
+    "team": "New Zealand",
+    "role": "ALL_ROUNDER",
+    "credits": 8.5,
+    "points": 58,
+    "matchId": "match-1",
+    "selectedBy": 52.1,
+    "image": null,
+    "stats": {
+      "recentScores": [45, 67, 23, 52, 38],
+      "recentWickets": [1, 0, 2, 1, 1],
+      "battingAverage": 32.8,
+      "strikeRate": 155.4
+    }
+  },
+  {
+    "id": "player-7",
+    "name": "Daryl Mitchell",
+    "team": "New Zealand",
+    "role": "ALL_ROUNDER",
+    "credits": 8.5,
+    "points": 64,
+    "matchId": "match-1",
+    "selectedBy": 48.9,
+    "image": null,
+    "stats": {
+      "recentScores": [56, 42, 78, 29, 61],
+      "recentWickets": [1, 2, 0, 1, 2],
+      "battingAverage": 38.5,
+      "strikeRate": 132.7
+    }
+  },
+  {
+    "id": "player-8",
+    "name": "Finn Allen",
+    "team": "New Zealand",
+    "role": "BATSMAN",
+    "credits": 8.0,
+    "points": 45,
+    "matchId": "match-1",
+    "selectedBy": 42.3,
+    "image": null,
+    "stats": {
+      "recentScores": [28, 67, 12, 89, 34],
+      "battingAverage": 28.4,
+      "strikeRate": 168.2
+    }
+  },
+  {
+    "id": "player-9",
+    "name": "Lockie Ferguson",
+    "team": "New Zealand",
+    "role": "BOWLER",
+    "credits": 9.0,
+    "points": 52,
+    "matchId": "match-1",
+    "selectedBy": 46.7,
+    "image": null,
+    "stats": {
+      "recentWickets": [2, 1, 3, 2, 1],
+      "bowlingAverage": 24.8,
+      "economy": 8.5
+    }
+  },
+  {
+    "id": "player-10",
+    "name": "Steve Smith",
+    "team": "Australia",
+    "role": "BATSMAN",
+    "credits": 10.0,
+    "points": 78,
+    "matchId": "match-1",
+    "selectedBy": 68.4,
+    "image": null,
+    "stats": {
+      "recentScores": [72, 45, 91, 56, 63],
+      "battingAverage": 54.2,
+      "strikeRate": 128.6
+    }
+  },
+  {
+    "id": "player-11",
+    "name": "Pat Cummins",
+    "team": "Australia",
+    "role": "BOWLER",
+    "credits": 9.5,
+    "points": 71,
+    "matchId": "match-1",
+    "selectedBy": 64.8,
+    "image": null,
+    "stats": {
+      "recentWickets": [3, 2, 4, 2, 3],
+      "bowlingAverage": 21.3,
+      "economy": 7.4
+    }
+  },
+  {
+    "id": "player-12",
+    "name": "David Warner",
+    "team": "Australia",
+    "role": "BATSMAN",
+    "credits": 9.5,
+    "points": 68,
+    "matchId": "match-1",
+    "selectedBy": 61.2,
+    "image": null,
+    "stats": {
+      "recentScores": [82, 34, 65, 91, 42],
+      "battingAverage": 46.8,
+      "strikeRate": 145.7
+    }
+  },
+  {
+    "id": "player-13",
+    "name": "Mitchell Starc",
+    "team": "Australia",
+    "role": "BOWLER",
+    "credits": 9.5,
+    "points": 66,
+    "matchId": "match-1",
+    "selectedBy": 58.9,
+    "image": null,
+    "stats": {
+      "recentWickets": [2, 3, 2, 1, 4],
+      "bowlingAverage": 23.7,
+      "economy": 8.0
+    }
+  },
+  {
+    "id": "player-14",
+    "name": "Glenn Maxwell",
+    "team": "Australia",
+    "role": "ALL_ROUNDER",
+    "credits": 9.0,
+    "points": 62,
+    "matchId": "match-1",
+    "selectedBy": 56.3,
+    "image": null,
+    "stats": {
+      "recentScores": [48, 72, 21, 56, 89],
+      "recentWickets": [1, 2, 0, 1, 2],
+      "battingAverage": 35.6,
+      "strikeRate": 158.4
+    }
+  },
+  {
+    "id": "player-15",
+    "name": "Alex Carey",
+    "team": "Australia",
+    "role": "WICKET_KEEPER",
+    "credits": 8.5,
+    "points": 48,
+    "matchId": "match-1",
+    "selectedBy": 44.7,
+    "image": null,
+    "stats": {
+      "recentScores": [32, 54, 21, 45, 38],
+      "battingAverage": 34.2,
+      "strikeRate": 132.1
+    }
+  },
+  {
+    "id": "player-16",
+    "name": "Marcus Stoinis",
+    "team": "Australia",
+    "role": "ALL_ROUNDER",
+    "credits": 8.5,
+    "points": 55,
+    "matchId": "match-1",
+    "selectedBy": 48.2,
+    "image": null,
+    "stats": {
+      "recentScores": [38, 61, 29, 45, 52],
+      "recentWickets": [1, 1, 2, 0, 1],
+      "battingAverage": 31.5,
+      "strikeRate": 142.8
+    }
+  },
+  {
+    "id": "player-17",
+    "name": "Josh Hazlewood",
+    "team": "Australia",
+    "role": "BOWLER",
+    "credits": 9.0,
+    "points": 58,
+    "matchId": "match-1",
+    "selectedBy": 51.6,
+    "image": null,
+    "stats": {
+      "recentWickets": [2, 2, 1, 3, 2],
+      "bowlingAverage": 24.2,
+      "economy": 7.6
+    }
+  },
+  {
+    "id": "player-18",
+    "name": "Adam Zampa",
+    "team": "Australia",
+    "role": "BOWLER",
+    "credits": 8.5,
+    "points": 52,
+    "matchId": "match-1",
+    "selectedBy": 46.8,
+    "image": null,
+    "stats": {
+      "recentWickets": [2, 1, 3, 2, 1],
+      "bowlingAverage": 26.4,
+      "economy": 7.9
+    }
+  },
+  {
+    "id": "player-19",
+    "name": "Joe Root",
+    "team": "England",
+    "role": "BATSMAN",
+    "credits": 10.0,
+    "points": 82,
+    "matchId": "match-2",
+    "selectedBy": 71.5,
+    "image": null,
+    "stats": {
+      "recentScores": [78, 56, 92, 64, 71],
+      "battingAverage": 51.8,
+      "strikeRate": 125.3
+    }
+  },
+  {
+    "id": "player-20",
+    "name": "Ben Stokes",
+    "team": "England",
+    "role": "ALL_ROUNDER",
+    "credits": 10.0,
+    "points": 75,
+    "matchId": "match-2",
+    "selectedBy": 69.2,
+    "image": null,
+    "stats": {
+      "recentScores": [62, 45, 81, 38, 67],
+      "recentWickets": [2, 1, 3, 1, 2],
+      "battingAverage": 42.6,
+      "bowlingAverage": 27.3
+    }
+  },
+  {
+    "id": "player-21",
+    "name": "Jos Buttler",
+    "team": "England",
+    "role": "WICKET_KEEPER",
+    "credits": 9.5,
+    "points": 70,
+    "matchId": "match-2",
+    "selectedBy": 66.8,
+    "image": null,
+    "stats": {
+      "recentScores": [68, 42, 91, 34, 58],
+      "battingAverage": 46.5,
+      "strikeRate": 148.2
+    }
+  },
+  {
+    "id": "player-22",
+    "name": "Jofra Archer",
+    "team": "England",
+    "role": "BOWLER",
+    "credits": 9.5,
+    "points": 64,
+    "matchId": "match-2",
+    "selectedBy": 60.3,
+    "image": null,
+    "stats": {
+      "recentWickets": [3, 2, 2, 4, 1],
+      "bowlingAverage": 22.8,
+      "economy": 8.2
+    }
+  },
+  {
+    "id": "player-23",
+    "name": "Virat Kohli",
+    "team": "India",
+    "role": "BATSMAN",
+    "credits": 11.0,
+    "points": 88,
+    "matchId": "match-3",
+    "selectedBy": 82.4,
+    "image": null,
+    "stats": {
+      "recentScores": [82, 67, 95, 71, 88],
+      "battingAverage": 56.4,
+      "strikeRate": 135.8
+    }
+  },
+  {
+    "id": "player-24",
+    "name": "Rohit Sharma",
+    "team": "India",
+    "role": "BATSMAN",
+    "credits": 10.5,
+    "points": 84,
+    "matchId": "match-3",
+    "selectedBy": 78.9,
+    "image": null,
+    "stats": {
+      "recentScores": [91, 45, 78, 62, 83],
+      "battingAverage": 52.8,
+      "strikeRate": 142.6
+    }
+  },
+  {
+    "id": "player-25",
+    "name": "Jasprit Bumrah",
+    "team": "India",
+    "role": "BOWLER",
+    "credits": 10.5,
+    "points": 76,
+    "matchId": "match-3",
+    "selectedBy": 73.2,
+    "image": null,
+    "stats": {
+      "recentWickets": [3, 4, 2, 3, 4],
+      "bowlingAverage": 19.5,
+      "economy": 6.8
+    }
+  },
+  {
+    "id": "player-26",
+    "name": "Hardik Pandya",
+    "team": "India",
+    "role": "ALL_ROUNDER",
+    "credits": 9.5,
+    "points": 72,
+    "matchId": "match-3",
+    "selectedBy": 68.7,
+    "image": null,
+    "stats": {
+      "recentScores": [56, 38, 72, 45, 61],
+      "recentWickets": [2, 1, 2, 3, 1],
+      "battingAverage": 38.4,
+      "strikeRate": 152.3
+    }
+  },
+  {
+    "id": "player-27",
+    "name": "Rishabh Pant",
+    "team": "India",
+    "role": "WICKET_KEEPER",
+    "credits": 9.5,
+    "points": 68,
+    "matchId": "match-3",
+    "selectedBy": 65.3,
+    "image": null,
+    "stats": {
+      "recentScores": [62, 34, 78, 91, 42],
+      "battingAverage": 44.6,
+      "strikeRate": 156.8
+    }
+  },
+  {
+    "id": "player-28",
+    "name": "Ravindra Jadeja",
+    "team": "India",
+    "role": "ALL_ROUNDER",
+    "credits": 9.0,
+    "points": 64,
+    "matchId": "match-3",
+    "selectedBy": 61.8,
+    "image": null,
+    "stats": {
+      "recentScores": [42, 28, 56, 31, 45],
+      "recentWickets": [2, 3, 1, 2, 2],
+      "battingAverage": 34.2,
+      "bowlingAverage": 25.6
+    }
+  },
+  {
+    "id": "player-29",
+    "name": "Tom Latham",
+    "team": "New Zealand",
+    "role": "WICKET_KEEPER",
+    "credits": 9.0,
+    "points": 58,
+    "matchId": "match-2",
+    "selectedBy": 54.2,
+    "image": null,
+    "stats": {
+      "recentScores": [48, 62, 31, 54, 42],
+      "battingAverage": 42.3,
+      "strikeRate": 128.4
+    }
+  },
+  {
+    "id": "player-30",
+    "name": "Mark Chapman",
+    "team": "New Zealand",
+    "role": "BATSMAN",
+    "credits": 8.0,
+    "points": 46,
+    "matchId": "match-2",
+    "selectedBy": 38.6,
+    "image": null,
+    "stats": {
+      "recentScores": [34, 56, 21, 48, 38],
+      "battingAverage": 35.8,
+      "strikeRate": 136.2
+    }
+  }
+]

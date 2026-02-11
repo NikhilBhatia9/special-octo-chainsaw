@@ -1,11 +1,23 @@
-import api from './api';
 import { User, AuthResponse } from '../types/auth.types';
+import usersData from '../data/users.json';
 
 export const authService = {
   loginWithGoogle: async (idToken: string): Promise<AuthResponse> => {
     try {
-      const response = await api.post('/api/auth/google', { idToken });
-      return response.data;
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 300));
+      
+      // For mock, use the first user
+      const user = usersData[0] as User;
+      
+      return {
+        user: {
+          ...user,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        },
+        token: 'mock-jwt-token-' + Date.now(),
+      };
     } catch (error) {
       throw error;
     }
@@ -13,8 +25,17 @@ export const authService = {
 
   getCurrentUser: async (): Promise<User> => {
     try {
-      const response = await api.get('/api/auth/me');
-      return response.data;
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 300));
+      
+      // For mock, use the first user
+      const user = usersData[0] as User;
+      
+      return {
+        ...user,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      };
     } catch (error) {
       throw error;
     }
@@ -22,7 +43,9 @@ export const authService = {
 
   logout: async (): Promise<void> => {
     try {
-      await api.post('/api/auth/logout');
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 300));
+      // Nothing to do for mock
     } catch (error) {
       throw error;
     }

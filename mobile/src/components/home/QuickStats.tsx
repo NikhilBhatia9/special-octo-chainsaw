@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginVertical: spacing.md,
+    marginHorizontal: -spacing.xs,
   },
   statCard: {
     flex: 1,
