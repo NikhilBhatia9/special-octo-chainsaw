@@ -77,11 +77,13 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
           <RefreshControl refreshing={isLoading} onRefresh={handleRefresh} />
         }
       >
-        <QuickStats
-          activeTeams={userStats.activeTeams}
-          liveContests={userStats.liveContests}
-          winRate={userStats.winRate}
-        />
+        <View style={styles.section}>
+          <QuickStats
+            activeTeams={userStats.activeTeams}
+            liveContests={userStats.liveContests}
+            winRate={userStats.winRate}
+          />
+        </View>
 
         {featuredMatch && (
           <View style={styles.section}>
