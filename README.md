@@ -66,6 +66,54 @@ DreamTeam/
 - npm or yarn
 - Expo CLI (for mobile)
 - Firebase account (for authentication)
+- Google Cloud Console project (for OAuth)
+
+### Firebase & Google OAuth Setup
+
+Before running the mobile app, you need to set up Firebase and Google OAuth:
+
+#### 1. Create a Firebase Project
+
+1. Go to [Firebase Console](https://console.firebase.google.com/)
+2. Click "Add project" and follow the setup wizard
+3. Once created, go to Project Settings (gear icon)
+
+#### 2. Enable Google Authentication
+
+1. In Firebase Console, navigate to **Authentication** → **Sign-in method**
+2. Enable **Google** as a sign-in provider
+3. Note your **Web client ID** (you'll need this later)
+
+#### 3. Add Android App to Firebase (for Android development)
+
+1. In Firebase Project Settings, click "Add app" → Android
+2. **Android package name**: Use `com.dreamteammobile` (or your custom package name)
+3. **App nickname**: DreamTeam Mobile
+4. **Debug signing certificate SHA-1**: 
+   ```bash
+   # Get your debug keystore SHA-1
+   cd android
+   ./gradlew signingReport
+   # Copy the SHA-1 from the 'debug' variant
+   ```
+5. Download `google-services.json` and place it in `mobile/android/app/`
+6. Follow remaining Firebase setup instructions
+
+#### 4. Add iOS App to Firebase (for iOS development)
+
+1. In Firebase Project Settings, click "Add app" → iOS
+2. **iOS bundle ID**: Use `com.dreamteammobile` (or your custom bundle ID)
+3. **App nickname**: DreamTeam Mobile
+4. Download `GoogleService-Info.plist` and place it in `mobile/ios/DreamTeamMobile/`
+5. Follow remaining Firebase setup instructions
+
+#### 5. Configure Google Cloud Console
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Select your Firebase project (it's automatically created)
+3. Navigate to **APIs & Services** → **Credentials**
+4. You'll see OAuth 2.0 Client IDs created by Firebase
+5. Copy the **Web client ID** (Type: Web application)
 
 ### Mobile App Setup
 
@@ -79,23 +127,58 @@ cd mobile
 npm install
 ```
 
-3. Create `.env` file:
+3. Create `.env` file (use `.env.example` as template):
 ```bash
-API_BASE_URL=http://localhost:3000
-GOOGLE_WEB_CLIENT_ID=your-google-web-client-id
+cp .env.example .env
 ```
 
-4. Start the development server:
+4. Update `.env` with your Firebase credentials:
+```bash
+API_BASE_URL=http://localhost:3000
+GOOGLE_WEB_CLIENT_ID=your-web-client-id.apps.googleusercontent.com
+FIREBASE_API_KEY=your-firebase-api-key
+FIREBASE_AUTH_DOMAIN=your-project-id.firebaseapp.com
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_STORAGE_BUCKET=your-project-id.appspot.com
+FIREBASE_MESSAGING_SENDER_ID=your-sender-id
+FIREBASE_APP_ID=your-app-id
+```
+
+5. Start the development server:
 ```bash
 npm start
 ```
 
-5. Run on iOS or Android:
+6. Run on iOS or Android:
 ```bash
 npm run ios
 # or
 npm run android
 ```
+
+### Testing Authentication
+
+#### Test Account Setup
+
+1. Use any Google account to sign in
+2. For testing, create a test Google account:
+   - Email: `dreamteam.test@gmail.com` (example)
+   - Use this for development and testing
+
+#### Demo Flow
+
+1. **First Launch**: App shows splash screen → Onboarding (3 screens)
+2. **Onboarding**: Match selector → Team builder → Contest intro
+3. **Login**: "Continue with Google" button
+4. **Google Sign-In**: System browser/Google Sign-In dialog
+5. **Dashboard**: Main app screen after successful authentication
+
+#### Troubleshooting
+
+- **"Developer Error" on Android**: Ensure SHA-1 certificate is added to Firebase
+- **"Sign-in failed" on iOS**: Check iOS bundle ID matches Firebase configuration
+- **Network error**: Ensure backend is running on `http://localhost:3000`
+- **"GOOGLE_WEB_CLIENT_ID not configured"**: Update `.env` file and restart Expo
 
 See [mobile/README.md](mobile/README.md) for detailed instructions.
 

@@ -5,17 +5,21 @@ import { MainNavigator } from './MainNavigator';
 import { useAuth } from '../hooks/useAuth';
 
 export const RootNavigator: React.FC = () => {
-  const { isAuthenticated } = useAuth();
-  const [showOnboarding, setShowOnboarding] = useState(true);
+  const { isAuthenticated, isLoading } = useAuth();
+  const [isInitialized, setIsInitialized] = useState(false);
 
-  // In a real app, check if user has seen onboarding from AsyncStorage
   useEffect(() => {
-    // const checkOnboarding = async () => {
-    //   const hasSeenOnboarding = await AsyncStorage.getItem('hasSeenOnboarding');
-    //   setShowOnboarding(!hasSeenOnboarding);
-    // };
-    // checkOnboarding();
-  }, []);
+    // Give the auth restoration a moment to complete
+    if (!isLoading) {
+      setIsInitialized(true);
+    }
+  }, [isLoading]);
+
+  // Wait for initialization before showing any navigator
+  // This prevents flickering between Auth and Main navigators
+  if (!isInitialized) {
+    return null;
+  }
 
   return (
     <NavigationContainer>

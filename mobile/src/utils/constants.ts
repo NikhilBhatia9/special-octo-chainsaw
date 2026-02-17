@@ -10,6 +10,11 @@ export const APP_VERSION = '1.0.0';
 // Google OAuth Configuration
 export const GOOGLE_WEB_CLIENT_ID = 'your-google-web-client-id';
 
+// AsyncStorage Keys
+export const AUTH_TOKEN_KEY = '@dreamteam:authToken';
+export const USER_DATA_KEY = '@dreamteam:userData';
+export const ONBOARDING_KEY = '@dreamteam:hasSeenOnboarding';
+
 // Team Building Constants
 export const MAX_TEAM_PLAYERS = 11;
 export const MAX_TEAM_CREDITS = 100;
